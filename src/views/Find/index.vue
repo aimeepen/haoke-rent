@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>找房</div>
 </template>
 
 <script>

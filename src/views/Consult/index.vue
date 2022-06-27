@@ -1,6 +1,6 @@
 
 <template>
-  <div></div>
+  <div>咨询</div>
 </template>
 
 <script>
