@@ -8,7 +8,7 @@
       background="#F5F6FA"
     >
       <template #action>
-        <div @click="$router.back(-1)">取消</div>
+        <div @click="back">取消</div>
       </template>
     </van-search>
     <van-cell-group v-show="isShow">
@@ -16,6 +16,7 @@
         v-for="(item, index) in list"
         :key="index"
         :title="item.cmName"
+        @click="getCommunityName(item)"
       />
     </van-cell-group>
   </div>
@@ -44,9 +45,6 @@ export default {
     //   document.querySelector('.van-field__control').removeAttribute('style')
     //   document.querySelector('.van-icon').removeAttribute('style')
     // },
-    enter () {
-      console.log(111)
-    },
     async getCommunity () {
       this.$toast.loading({
         message: '加载中',
@@ -64,6 +62,16 @@ export default {
       })
       this.$toast.clear()
       this.isShow = true
+    },
+    getCommunityName (item) {
+      this.$store.commit('setcommunityname', item.cmName)
+      this.$store.commit('setcommunityId', item.cmId)
+
+      this.$router.push('/rent/add')
+    },
+    back () {
+      this.$store.commit('setcommunityname', '')
+      this.$router.back()
     }
   },
   computed: {},

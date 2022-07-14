@@ -9,8 +9,12 @@ export default new Vuex.Store({
   state: {
     user: {},
     name: '上海',
-    id: ''
-
+    id: '',
+    communityname: '',
+    communityId: '',
+    roomType: [],
+    oriented: '',
+    floor: ''
   },
   getters: {
   },
@@ -23,6 +27,21 @@ export default new Vuex.Store({
     },
     setId (state, payload) {
       state.id = payload
+    },
+    setcommunityname (state, payload) {
+      state.communityname = payload
+    },
+    setcommunityId (state, payload) {
+      state.communityId = payload
+    },
+    setroomType (state, payload) {
+      state.roomType = payload
+    },
+    setoriented (state, payload) {
+      state.oriented = payload
+    },
+    setfloor (state, payload) {
+      state.floor = payload
     }
   },
   actions: {

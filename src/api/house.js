@@ -43,15 +43,6 @@ export const getHouses = ({
     }
   })
 }
-/**
- * 发布房屋所需条件
- * @returns
- */
-export const addRoom = () => {
-  return request({
-    url: '/houses/params'
-  })
-}
 
 export const getHouseInfo = (id) => {
   return request({
@@ -68,6 +59,60 @@ export const getCommunity = ({ id, name }) => {
     params: {
       id,
       name
+    }
+  })
+}
+/**
+ * 图片上传
+ * @param {*} data
+ * @returns
+ */
+export const getHouseImage = (data) => {
+  return request({
+    method: 'POST',
+    url: '/houses/image',
+    data
+  })
+}
+/**
+ * 发布房屋所需条件
+ * @returns
+ */
+export const getHousesParams = () => {
+  return request({
+    url: '/houses/params'
+  })
+}
+
+/**
+ * 发布房屋
+ * @param {*} param0
+ * @returns
+ */
+export const postHouse = ({
+  title,
+  description,
+  houseImg,
+  oriented,
+  supporting,
+  price,
+  roomType,
+  size,
+  community
+}) => {
+  return request({
+    method: 'POST',
+    url: '/user/houses',
+    data: {
+      title,
+      description,
+      houseImg,
+      oriented,
+      supporting,
+      price,
+      roomType,
+      size,
+      community
     }
   })
 }

@@ -53,7 +53,6 @@
             <div class="bottom-content">
               <ul>
                 <li
-                  :class="{ green: item.bool }"
                   v-for="(item, index) in lis1"
                   :key="index"
                   @click="addStyle($event, item)"
@@ -69,7 +68,6 @@
             <div class="bottom-content">
               <ul>
                 <li
-                  :class="{ green: item.bool }"
                   v-for="(item, index) in lis2"
                   :key="index"
                   @click="addStyle($event, item)"
@@ -85,7 +83,6 @@
             <div class="bottom-content">
               <ul>
                 <li
-                  :class="{ green: item.bool }"
                   v-for="(item, index) in lis3"
                   :key="index"
                   @click="addStyle($event, item)"
@@ -101,7 +98,6 @@
             <div class="bottom-content">
               <ul>
                 <li
-                  :class="{ green: item.bool }"
                   v-for="(item, index) in lis4"
                   :key="index"
                   @click="addStyle($event, item)"
@@ -140,7 +136,7 @@ import { getHouseCondition, getHouses } from '@/api/house'
 import RoomItem from '@/components/RoomItem.vue'
 export default {
   created () {
-
+    this.getHouseCondition()
   },
   mounted () {
     this.getHouses(this.obj)
@@ -237,7 +233,7 @@ export default {
           }
         })
         this.columns[0].children.shift()
-        // 租房
+        // 地铁
         this.columns.push(res.data.body.subway)
         this.columns[1].text = res.data.body.subway.label
         this.columns[1].value = res.data.body.subway.value
@@ -255,6 +251,7 @@ export default {
 
         res.data.body.rentType.forEach(item => {
           this.columns1.push({ text: item.label, value: item.value })
+          // this.$store.commit('setrentType', this.columns1)
         })
         // console.log(this.columns1)
 
@@ -266,16 +263,19 @@ export default {
         // 户型
         res.data.body.roomType.forEach(item => {
           this.lis1.push({ text: item.label, value: item.value })
+          this.$store.commit('setroomType', this.lis1)
         })
-        // console.log(this.lis1)
+
         // 朝向
         res.data.body.oriented.forEach(item => {
           this.lis2.push({ text: item.label, value: item.value })
+          this.$store.commit('setoriented', this.lis2)
         })
         // console.log(this.lis2)
         // 楼层
         res.data.body.floor.forEach(item => {
           this.lis3.push({ text: item.label, value: item.value })
+          this.$store.commit('setfloor', this.lis3)
         })
         // console.log(this.lis3)
         // 房屋亮点
