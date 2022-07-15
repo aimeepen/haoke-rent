@@ -131,12 +131,13 @@ export default {
       } catch (err) {
         console.log(err)
       }
-    },
-    computed: {},
-    watch: {},
-    filters: {},
-    components: {}
-  }
+    }
+
+  },
+  computed: {},
+  watch: {},
+  filters: {},
+  components: {}
 }
 </script>
 
