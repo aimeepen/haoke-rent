@@ -35,7 +35,7 @@ const routes = [
   { path: '/rent/search', component: Search },
   { path: '/city', component: City },
   { path: '/map', component: Map },
-  { path: 'detail', component: Detail }
+  { path: '/detail/:id', component: Detail, name: 'detail', props: true }
 
 ]
 

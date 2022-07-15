@@ -236,7 +236,7 @@ export default {
     },
     async getHousesParams () {
       const res = await getHousesParams()
-      console.log(res)
+      console.log('res', res)
       this.supporting.push(res.data.body.supporting)
 
       this.icons.forEach((item, index) => {

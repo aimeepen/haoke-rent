@@ -1,5 +1,8 @@
 <template>
-  <div class="house-item">
+  <div
+    class="house-item"
+    @click="$router.push({ name: 'detail', params: { id: obj.houseCode } })"
+  >
     <div class="house-img">
       <van-image :src="'http://liufusong.top:8080' + obj.houseImg" />
     </div>
@@ -30,13 +33,14 @@ export default {
     }
   },
   created () {
-
   },
   data () {
     return {
     }
   },
-  methods: {},
+  methods: {
+
+  },
   computed: {},
   watch: {},
   filters: {},

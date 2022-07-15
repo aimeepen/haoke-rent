@@ -121,7 +121,6 @@
     </van-dropdown-menu>
     <div class="bottom">
       <room-item
-        @click="$router.push('detail')"
         :obj="item"
         v-for="(item, index) in house"
         :key="index"
@@ -180,7 +179,7 @@ export default {
         start: 1,
         end: 20,
         rentType: true,
-        price: null,
+        price: '',
         floor: 'FLOOR|1',
         cityId: '',
         more: '',
@@ -299,6 +298,7 @@ export default {
         // console.log(this.obj)
         // console.log(res)
         this.house = res.data.body.list
+        console.log(this.house)
       } catch (err) {
         console.log(err)
       }

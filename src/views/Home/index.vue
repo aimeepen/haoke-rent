@@ -81,7 +81,7 @@ export default {
         item = `http://liufusong.top:8080${item}`
         this.images.push(item)
       })
-      // console.log(this.images)
+      console.log(this.images)
       // console.log(this.arr)
     },
     publishRooms () {

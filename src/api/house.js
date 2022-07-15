@@ -116,3 +116,33 @@ export const postHouse = ({
     }
   })
 }
+
+/**
+ * 房屋详情
+ * @param {*} id
+ * @returns
+ */
+export const getHouseDetail = (id) => {
+  return request({
+    url: `/houses/${id}`
+  })
+}
+
+/**
+ * 添加收藏
+ */
+
+export const addCollect = id => {
+  return request({
+    url: `/user/favorites/${id}`
+  })
+}
+
+/**
+ * 删除收藏
+ */
+export const delCollect = id => {
+  return request({
+    url: `/user/favorites/${id}`
+  })
+}
